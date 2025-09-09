@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+bool is_prime(int a){
+    int cnt = 0;
+    for(int i = 2; i <= a; i++){
+        if(a % i == 0){
+            cnt++;
+        }
+    }
+
+    if(cnt == 1){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+int main(){
+
+    int input, cnt_superprime = 0, cnt_index = 0, num = 2;
+
+    cin >> input;
+
+    while(cnt_superprime != input){
+    
+        if(is_prime(num)){ // 2, 3, 5, 7 // if our num is prime, then we add 1 to the counter of primes
+            cnt_index++;   // 1, 2, 3, 4
+
+            if(is_prime(cnt_index)){ // then we check if the indexes of the our nums are prime or not
+                cnt_superprime++; // if the index of the prime number that we found is also prime - add 1 
+                                  // to the counter of superprimes
+                
+                if(cnt_superprime == input){ // if the initial value of the counter of superprimes 
+                    cout << num;             // is equal to the input, print the current number that prime and break out of loop
+                    break;
+                }
+            }
+        }
+    
+        num++;
+    }
+
+    return 0;
+}
