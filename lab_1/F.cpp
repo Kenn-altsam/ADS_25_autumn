@@ -1,16 +1,20 @@
+// Prime Numbers
+
 #include <iostream>
+#include <vector> 
 using namespace std;
 
 int main(){
 
-    int input, cnt = 0, cnt_prime = 0, num = 2; 
     
 
+    int input, cnt = 0, cnt_prime = 0, num = 2; 
+    
     cin >> input; // 5
 
-    while (cnt_prime != input){
+    while (cnt_prime != input){ // work until we get all the prime numbers
 
-        for(int i = 2; i <= num; i++){
+        for(int i = 2; i <= num; i++){ // if the 
             if(num % i == 0){
                 cnt++;
             }

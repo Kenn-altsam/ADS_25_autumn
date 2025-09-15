@@ -1,3 +1,5 @@
+// Boris vs Nursik
+
 #include <iostream>
 #include <queue> 
 using namespace std;
@@ -38,7 +40,7 @@ int main(){
     }
 
     if(cnt >= 1000000){
-        cout << "Blin nichya"; // if we count more than 100,000, we show the message /
+        cout << "Blin nichya"; // if we count more than 100,000, we show the message
     }
     else if(first.empty()){
         cout << "Nursik " << cnt; // if Boris has no cards - Nursik wins

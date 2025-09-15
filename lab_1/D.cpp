@@ -1,3 +1,5 @@
+// Balanced sequence of letters
+
 #include <iostream>
 #include <stack>
 using namespace std;
