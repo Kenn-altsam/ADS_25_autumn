@@ -1,26 +1,28 @@
+// Ragnarok
+
 #include <iostream>
 #include <climits>
 using namespace std;
 
-struct Node{
+struct Node{ // declaring the struct
     int data;
     Node* next;
 
-    Node(int new_data){
+    Node(int new_data){ // Struct constructor
         data = new_data;
         next = nullptr;
     }
 };
 
-int findMaxSum(int n, Node* head){
+int findMaxSum(int n, Node* head){ // function for finding max consequtive sum
 
     int mx = INT_MIN, sum;
-    Node* cur = head;
-    for(int i = 0; i < n; i++){
+    Node* cur = head; 
+    for(int i = 0; i < n; i++){ // working with every node in our pointer
         sum = 0;
         cur = head;
-        head = head->next;
-        while(cur != nullptr){
+        head = head->next; // making the next nodes as the head nodes
+        while(cur != nullptr){ // adding the nodes' data starting from each node until the end node 
             sum += cur->data;
             if(sum > mx){
                 mx = sum;
@@ -37,18 +39,19 @@ int main(){
 
     cin >> n;
 
-    Node* head = nullptr;
+    Node* head = nullptr; // setting head and tail pointers to nullptr
     Node* tail = nullptr;
 
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++){ // this loop is for creating the nodes and connecting them
         cin >> x;
         Node* node = new Node(x);
-        if(head == nullptr){
+
+        if(head == nullptr){ // if the head pointer is nullptr, set head and tail to node
             head = tail = node;
         }
         else{
-            tail->next = node;
-            tail = node;
+            tail->next = node; // if the head node already exists, 1. connect the tail to a new node
+            tail = node; // 2. make the new node the tail
         }
     }
 

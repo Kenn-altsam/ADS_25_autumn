@@ -1,3 +1,5 @@
+// Kuanyshbek
+
 #include <iostream>
 using namespace std;
 

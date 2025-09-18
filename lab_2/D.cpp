@@ -1,4 +1,9 @@
+//  List modes
+
 #include <iostream>
+#include <map>
+#include <set> 
+#include <climits>
 using namespace std;
 
 struct Node{
@@ -13,7 +18,9 @@ struct Node{
 
 int main(){
 
-    int n, x;
+    int n, x, max = INT_MIN;
+    map<int, int> my_map;
+    set<int> my_set;
 
     cin >> n;
 
@@ -22,6 +29,11 @@ int main(){
 
     for(int i = 0; i < n; i++){
         cin >> x;
+        
+        my_map[x]++;
+        if(my_map[x] > max){
+            max = my_map[x];
+        }
 
         Node* node = new Node(x);
 
@@ -38,6 +50,15 @@ int main(){
 
     while(cur != nullptr){
         // Miras, Miras, Kenzhe, Olzhas, Olzhas, Sanzhar
+        if(my_map[cur->data] == max){
+            my_set.insert(cur->data);
+        }
+        cur = cur->next;
+    }
+
+    set<int>::reverse_iterator it;
+    for(it = my_set.rbegin(); it != my_set.rend(); it++){
+        cout << *it << " ";
     }
 
     return 0;
