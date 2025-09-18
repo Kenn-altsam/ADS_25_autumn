@@ -11,16 +11,19 @@ int main(){
     int input, cnt = 0, cnt_prime = 0, num = 2; 
     
     cin >> input; // 5
+    
+    bool is_prime = true;
 
-    while (cnt_prime != input){ // work until we get all the prime numbers
+    while (cnt_prime < input){ // work until we get all the prime numbers
+        is_prime = true;
 
-        for(int i = 2; i <= num; i++){ // if the 
+        for(int i = 2; i * i <= num; i++){ // going until the sqrt of num
             if(num % i == 0){
-                cnt++;
+                is_prime = false;
             }
         }
-        
-        if(cnt == 1){
+
+        if(is_prime){
             cnt_prime++;
         }
 

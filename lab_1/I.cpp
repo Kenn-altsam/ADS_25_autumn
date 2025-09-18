@@ -24,9 +24,9 @@ int main(){
 
     while(!S.empty() && !K.empty()){ // each has to vote, but the previous student already banned you, are 
         if(S.front() < K.front()){   // out of the game 
-            S.push(S.front() + n);   // What we do: we until one of the queues is empty  
-            K.pop();                 // if the id of the S is less than K, i.e. the student we are checking 
-            S.pop();                 // comes before the student we are checking, we remove the student from the opponent team 
+            S.push(S.front() + n);   // What we do: we go until one of the queues is empty  
+            K.pop();                 // if the id of the S is less than K, i.e. the student we are checking in S
+            S.pop();                 // comes before the student we are checking in K, we remove the student from the opponent team 
         }                            // and put the student who banned the other one to the end of the queue
         else{
             K.push(K.front() + n); // the same here 
