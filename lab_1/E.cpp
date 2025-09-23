@@ -1,4 +1,6 @@
 // Boris vs Nursik
+// The program must determine who wins, and output the word Boris or Nursik, then output the number of moves made before winning. 
+// If the game does not end within 10^6 moves, the program should output only blin nichya.
 
 #include <iostream>
 #include <queue> 

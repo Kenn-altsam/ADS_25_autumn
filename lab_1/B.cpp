@@ -1,4 +1,5 @@
 // Nugman and Stack
+// Each person wants to know if there is a younger person before him in a queue
 
 #include <iostream>
 #include <vector> 

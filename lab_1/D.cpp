@@ -1,4 +1,5 @@
 // Balanced sequence of letters
+// Print “YES” if string is balanced, otherwise print “NO”
 
 #include <iostream>
 #include <stack>

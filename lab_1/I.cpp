@@ -1,4 +1,7 @@
 // Classroom of the Elite
+// Print single line: the name of the fraction without quotes.
+// “SAKAYANAGI” — if Sakayanagi will win.
+// “KATSURAGI” — if Katsuragi will win.
 
 #include <iostream>
 #include <queue>
@@ -28,7 +31,8 @@ int main(){
             K.pop();                 // if the id of the S is less than K, i.e. the student we are checking in S
             S.pop();                 // comes before the student we are checking in K, we remove the student from the opponent team 
         }                            // and put the student who banned the other one to the end of the queue
-        else{
+        else{                        // we add n, because for example if there are 5 people, and first votes
+                                     // the next time, he/she votes is 6th index(after all other 4 people)
             K.push(K.front() + n); // the same here 
             S.pop();
             K.pop();

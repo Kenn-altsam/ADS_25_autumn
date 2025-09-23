@@ -1,4 +1,5 @@
 // Equal strings
+// Given two strings. Each string contains lower case English letters and the # symbol, which means you typed backspace. Check if two strings are equal.
 
 #include <iostream>
 #include <algorithm> 

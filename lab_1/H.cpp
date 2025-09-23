@@ -1,4 +1,5 @@
 // Prime or not
+// Print “YES” (without quotes) if the number is prime. Otherwise print “NO” (without quotes)
 
 #include <iostream>
 using namespace std;

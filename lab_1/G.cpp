@@ -1,9 +1,10 @@
 // Vanya and Primes 2
+// You need to find a prime whose index is n-th prime.
 #include <iostream>
 using namespace std;
 
 
-// the function for finding the prime numbers
+// The function for finding the prime numbers
 bool is_prime(int a){
     bool prime = true;
     if(a == 1){

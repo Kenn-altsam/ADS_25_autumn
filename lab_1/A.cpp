@@ -1,4 +1,6 @@
 // Royal Flush
+//We pick up 1 card and put it on the back of the deck.
+// Now, we pick up another card, it turns out to be card numbered 1, we put it outside the deck.
 
 #include <iostream>
 #include <deque>

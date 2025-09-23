@@ -1,4 +1,5 @@
 // Prime Numbers
+// Print n-th prime number.
 
 #include <iostream>
 #include <vector> 
@@ -6,9 +7,7 @@ using namespace std;
 
 int main(){
 
-    
-
-    int input, cnt = 0, cnt_prime = 0, num = 2; 
+    int input, cnt_prime = 0, num = 2; 
     
     cin >> input; // 5
     
@@ -33,7 +32,7 @@ int main(){
         }
 
         num++;
-        cnt = 0;
+        
     }
 
     return 0;

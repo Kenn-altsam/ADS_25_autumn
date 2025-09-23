@@ -1,4 +1,7 @@
 // Deque
+// If she tired she shows the character ’!’ , if she wants to add a number to the begin she shows ’+’,
+// and if she wants to add to the back , shows character ’-’ and if she shows ’*’, 
+// you have to find the sum of first and last elements and delete elements. Help her to solve this problem.
 
 #include <iostream>
 #include <deque>
