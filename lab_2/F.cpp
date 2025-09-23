@@ -43,7 +43,7 @@ int main(){
 
     if(pos == 0){ // if the pos of the element that needs to be inserted is 0, then 
         new_node->next = head; // connect new_node to the current head node
-        head = new_node; // make new_node the head node 
+        head = new_node; // make new_node the head node 1 -> 2 -> 3 -> 4 -> null 
     }
     else{
         while(cur != nullptr){ // if the pos is greater than 0, then 

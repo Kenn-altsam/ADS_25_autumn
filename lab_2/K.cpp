@@ -48,7 +48,7 @@ int main(){
             Node* cur = head; // make the cur pointer that points to head
             my_map[my_char]++;
 
-            while(cur!= nullptr && my_map[cur->data] > 1){
+            while(cur != nullptr && my_map[cur->data] > 1){
                 cur = cur->next;
             }
 
