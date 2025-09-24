@@ -1,4 +1,5 @@
 // Doubly linked list
+// Implement the doubly linked list data structure. 
 
 #include <iostream>
 using namespace std;
@@ -17,9 +18,9 @@ struct Node{
 
 Node* head = nullptr;
 Node* tail = nullptr;
-int cnt = 0;
+int cnt = 0; // cnt is for counting the length
 
-bool empty(){
+bool empty(){ 
     if(cnt == 0){
         return true;
     }
@@ -125,8 +126,8 @@ void erase(){
             head = tail = nullptr;
         }
         else{
-            head = head->next;
-            head->prev = nullptr;
+            head = head->next; // moving head to the second element
+            head->prev = nullptr; // second last element has the next pointing to the first element and now it must be null
         }
 
         delete temp;

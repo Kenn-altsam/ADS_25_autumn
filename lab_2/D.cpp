@@ -1,4 +1,7 @@
 //  List modes
+// You are given a list of integer numbers. Print its mode. 
+// Mode is the number that occurs most frequently in the list. 
+// If there is several modes, print them in descending order.
 
 #include <iostream>
 #include <map>
@@ -27,11 +30,11 @@ int main(){
     Node* head = nullptr;
     Node* tail = nullptr;
 
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++){ // get the numbers
         cin >> x;
         
-        my_map[x]++;
-        if(my_map[x] > max){
+        my_map[x]++; // count the frequency of each number that occurs
+        if(my_map[x] > max){ // compare the frequency of numbers with max
             max = my_map[x];
         }
 
@@ -48,15 +51,15 @@ int main(){
 
     Node* cur = head;
 
-    while(cur != nullptr){
+    while(cur != nullptr){ // work until we reach the end of LL
         // Miras, Miras, Kenzhe, Olzhas, Olzhas, Sanzhar
-        if(my_map[cur->data] == max){
+        if(my_map[cur->data] == max){ // finding the numbers that have the frequency equal to max 
             my_set.insert(cur->data);
         }
         cur = cur->next;
     }
 
-    set<int>::reverse_iterator it;
+    set<int>::reverse_iterator it; // printing those numbers with max frequency in a decreasing order
     for(it = my_set.rbegin(); it != my_set.rend(); it++){
         cout << *it << " ";
     }

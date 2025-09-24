@@ -1,4 +1,9 @@
 // Nearest number
+// You are given list of integers and an integer k. Find nearest to k number in the list. 
+// Distance between numbers is defined as absolute value of their difference. 
+// If there are multiple such numbers, choose the first one.
+
+
 
 #include <iostream>
 #include <climits>

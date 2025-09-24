@@ -1,4 +1,7 @@
 // Database
+// It is known that duplicates of the same name occupy subsequent positions in the list. 
+// Show how many students we have and print all these student’s name line by line. 
+// By completing the template it is done automatically.
 
 #include <iostream>
 #include <climits>
@@ -35,12 +38,12 @@ int main(){
             cnt++;
         }
         else{
-            if(x != tail->data){
+            if(x != tail->data){ // if the new element is not equal to the tail of the LL, add it to the LL
                 cnt++;
+                tail->next = node; 
+                node->prev = tail;
+                tail = node;
             }
-            tail->next = node;
-            node->prev = tail;
-            tail = node;
         }
     }
 
@@ -52,12 +55,7 @@ int main(){
 
     while(cur != nullptr){
         cout << cur->data << endl; // Print current value
-
-        // Skip all previous duplicates of the current value
-        while(cur->prev != nullptr && cur->data == cur->prev->data){ // Skip backwards through all duplicates 
-            cur = cur->prev; // of this value (find the start of this duplicate group)
-        }
-        cur = cur->prev; // Move to the previous unique value (the one before this duplicate group)
+        cur = cur->prev; // Move to the previous node
     }
 
     return 0;

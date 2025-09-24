@@ -1,4 +1,5 @@
 // One-time guests
+// The task is to find the first (or leftmost) non-repeating character each time a character is inserted to the stream.
 
 #include <iostream>
 #include <map>
@@ -17,27 +18,25 @@ struct Node{ // declaring the struct
 
 int main(){
 
-    int times, n;
+    int times, n; // times is for each test case
     char my_char;
 
-    cin >> times;
+    cin >> times; 
 
-    
-
-    while(times--){
+    while(times--){ 
 
         map<char, int> my_map;
 
         cin >> n;
 
-        Node* head = nullptr; // setting head and tail pointers to nullptr
-        Node* tail = nullptr;
+        Node* head = NULL; // setting head and tail pointers to nullptr
+        Node* tail = NULL;
 
         for(int i = 0; i < n; i++){ // this loop is for creating the nodes and connecting them
             cin >> my_char;
             Node* node = new Node(my_char);
 
-            if(head == nullptr){ // if the head pointer is nullptr, set head and tail to node
+            if(head == NULL){ // if the head pointer is nullptr, set head and tail to node
                 head = tail = node; 
             }
             else{
@@ -46,13 +45,13 @@ int main(){
             }
 
             Node* cur = head; // make the cur pointer that points to head
-            my_map[my_char]++;
+            my_map[my_char]++; // count the number of times the char occurs
 
-            while(cur != nullptr && my_map[cur->data] > 1){
-                cur = cur->next;
+            while(cur != NULL && my_map[cur->data] > 1){ // while we don't reach the end of LL and the number's
+                cur = cur->next;                            // frequency is higher than 1 
             }
 
-            if(cur == nullptr){
+            if(cur == NULL){
                 cout << -1 << " ";
             }
             else{

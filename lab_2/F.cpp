@@ -1,4 +1,5 @@
 // Insertion of Node
+// Just insert the node
 
 #include <iostream>
 using namespace std;

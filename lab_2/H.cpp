@@ -35,7 +35,7 @@ Node* insert(Node* head, Node* node, int k){
         return head;
     }
 
-    if(k == 0){
+    if(k == 0){ // when the position to insert is 0
         node->next = head;
         head = node;
         return head;
@@ -43,13 +43,13 @@ Node* insert(Node* head, Node* node, int k){
 
     int cnt = 0;
     Node* cur = head;
-    while(cnt != k - 1 && cur != NULL){
+    while(cnt != k - 1 && cur != NULL){ // reach the element before the position to insert
         cur = cur->next;
         cnt++;
     }
 
-    node->next = cur->next;
-    cur->next = node;
+    node->next = cur->next; // add the new element to the desired position by 1. connecting new node to cur's next
+    cur->next = node; // 2. connecting cur's next to new node
     return head;
 }
  
@@ -57,24 +57,24 @@ Node* remove(Node* head, int k){
     if(head == NULL){
         return head;
     }   
-    if(k == 0){
+    if(k == 0){ // when the position to remove is 0
         Node* temp = head;
-        head = head->next;
-        delete temp;
+        head = head->next; // move head to the next node
+        delete temp; // delete the temp from the memory
         return head;
     }
 
     int cnt = 0;
     Node* cur = head;
-    while(cnt != k - 1){
+    while(cnt != k - 1){ // reach the element before the element that is going to be removed
         cur = cur->next;
         cnt++;
     }
 
-    Node* temp = cur->next;
+    Node* temp = cur->next; // save the node that is going to be removed to a temp variable
 
-    cur->next = cur->next->next;
-    delete temp;
+    cur->next = cur->next->next; // connect cur's next to the element that is after the element that is going 
+    delete temp;                 // to be removed
     return head;
 }
  
@@ -85,35 +85,35 @@ Node* replace(Node* head, int p1, int p2){
 
     if(p1 == 0){ // if the pos of p1 is 0
         Node* node = head;
-        head = head->next;
+        head = head->next; // move head to the next node
 
         if(p2 == 0){ // if the pos of p2 is also 0
-            node->next = head;
-            head = node;
+            node->next = head; // just add the node as the first node
+            head = node; // make head the added node
             return head;
         }  
         
         int cnt = 0; // if the inserting position is not the first position
         Node* temp = head;
-        while(cnt != (p2 - 1)){
+        while(cnt != (p2 - 1)){ // reach the position before the position to be inserted
             temp = temp->next;
             cnt++;
         }
 
-        node->next = temp->next;
-        temp->next = node;
+        node->next = temp->next; // connect the node that is going to be added to the next of the cur
+        temp->next = node; // connect cur's next to the node that is going to be inserted
         return head;
     }
-    else{
+    else{ // if the element that is going to be removed is not the 0th
         int cnt = 0;
         Node* temp_2 = head;
-        while(cnt != (p1 - 1)){
+        while(cnt != (p1 - 1)){ // reach the 1 position before of the element that is going to be removed
             temp_2 = temp_2->next;
             cnt++;
         }
 
-        Node* needed_node = temp_2->next; // saving the data of the node that we need to insert 
-        temp_2->next = temp_2->next->next; // this is the node just before the node that we need 
+        Node* needed_node = temp_2->next; // saving the data of the node that we need to insert, this is the node just before the node that we need 
+        temp_2->next = temp_2->next->next; // connect the cur to the next element of the element that is going to be removed
 
         if(p2 == 0){ // if the pos of p2 is also 0
             needed_node->next = head;
@@ -123,7 +123,7 @@ Node* replace(Node* head, int p1, int p2){
         
         cnt = 0; // if the inserting position is not the first position
         Node* temp = head;
-        while(cnt != (p2 - 1)){
+        while(cnt != (p2 - 1)){ 
             temp = temp->next;
             cnt++;
         }
@@ -153,11 +153,11 @@ Node* reverse(Node* head){
 }
  
 void print(Node* head){
-    if(head == NULL){
+    if(head == NULL){ // if there's nothing, return nothing 
         return;
     }
 
-    while(head != NULL){
+    while(head != NULL){ // print every element of LL 
         cout << head->data << ' ';
         head = head->next;
     }
@@ -185,13 +185,13 @@ Node* cyclic_right(Node* head, int k){
     Node* tail = head;
     int len = 1; // we set len equal to 1, because at the moment of the first loop in while loop -> 
                  // we would already be at the 1st element in our list 
-    while(tail->next != NULL){ // Finding the length of a linked list
+    while(tail->next != NULL){ // Finding the length of the linked list
         len++; 
         tail = tail->next;
     }
 
     k = k % len;
-    if(k == 0){
+    if(k == 0){ // finding how many times we need to do shifts
         return head;
     }
 
@@ -223,7 +223,7 @@ Node* cyclic_left(Node* head, int k){ // cyclic shift k times -> means cyclic ri
     k = k % len;
     k = len - k; // cyclic shift k times -> means cyclic right (len - k) times
 
-    if(k == 0){
+    if(k == 0){ // finding how many times we need to do shifts
         return head;
     }
 

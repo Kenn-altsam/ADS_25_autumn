@@ -1,4 +1,5 @@
 // Kuanyshbek
+// delete each second element
 
 #include <iostream>
 using namespace std;

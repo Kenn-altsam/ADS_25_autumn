@@ -1,4 +1,5 @@
 // Ragnarok
+// Find non-empty subarray of a (range of consequent elements) of maximal sum.
 
 #include <iostream>
 #include <climits>
@@ -24,7 +25,7 @@ int findMaxSum(int n, Node* head){ // function for finding max consequtive sum
         head = head->next; // making the next nodes as the head nodes
         while(cur != nullptr){ // adding the nodes' data starting from each node until the end node 
             sum += cur->data;
-            if(sum > mx){
+            if(sum > mx){ // if the sum is greater than the max, make max the sum 
                 mx = sum;
             }
             cur = cur->next;
