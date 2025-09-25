@@ -3,8 +3,6 @@
 // Distance between numbers is defined as absolute value of their difference. 
 // If there are multiple such numbers, choose the first one.
 
-
-
 #include <iostream>
 #include <climits>
 using namespace std;
