@@ -1,10 +1,10 @@
-// You are going to hike in the mountains.You need to tell which of the paths written on the piece of paper is available.
+// You're going to hike in the mountains.You need to tell which of the paths written on the piece of paper is available.
 
 #include <iostream>
 #include <vector>
 using namespace std;
 
-struct Node{
+struct Node{ // the struct for the bst
     int data;
     Node* left;
     Node* right;
@@ -16,31 +16,34 @@ struct Node{
     }
 };
 
-void insert_bst(Node* &node, int data){
-    if(node == nullptr){
-        node = new Node(data);
+Node* insert_bst(Node* &root, int data){ // inserting the elements to the bst
+    if(root == nullptr){                 // we need &root because, we're changing the actual bst itself
+        root = new Node(data);           // assigning a new node to root with & modifies the actual pointer passed from main()
     }
     else{
-        if(data < node->data){
-            insert_bst(node->left, data);
+        if(data < root->data){ // if the given value is less than the root's data go to the left child
+            insert_bst(root->left, data);
         }
         else{
-            insert_bst(node->right, data);
+            insert_bst(root->right, data); // otherwise, go to the right child
         }
     }
+    return root;
 }
 
-bool check_function(string my_string, Node* node){
-    Node* cur = node;
-    for(int i = 0; i < my_string.size(); i++){
-        if(cur == nullptr){
+bool is_valid(Node* cur, string my_string){
+    
+    for(int i = 0; i < my_string.size(); i++){ // working with every letter of the string
+        if(cur == nullptr){ // if the cur is nullptr, return false
             return false;
         }
-        else if(my_string[i] == 'L'){
-            cur = cur->left;
-        }
-        else if(my_string[i] == 'R'){
-            cur = cur->right;
+        else{
+            if(my_string[i] == 'L'){ // if the there's something in the cur's data, then we compare the letter
+                cur = cur->left;     // of my_string with the cur's data - if it's less, go left
+            }
+            else if(my_string[i] == 'R'){ // if it's greater, go right
+                cur = cur->right;
+            }
         }
     }
 
@@ -55,30 +58,32 @@ bool check_function(string my_string, Node* node){
 int main(){
 
     int n, m, x;
-    string my_str;
-    vector<string> my_vector;
-
     cin >> n >> m;
 
-    Node* root = NULL;
+    string my_string;
 
-    for(int i = 0; i < n; i++){
+    Node* root = NULL; // creating the first node and setting it's value to NULL;
+
+    vector<string> result;
+
+    for(int i = 0; i < n; i++){ // getting elements for the bst
         cin >> x;
         insert_bst(root, x);
     }
 
     for(int i = 0; i < m; i++){
-        cin >> my_str;
-        my_vector.push_back(my_str);
-    }
+        cin >> my_string;
 
-    for(int i = 0; i < m; i++){
-        if(check_function(my_vector[i], root)){
-            cout << "YES" << endl;
+        if(is_valid(root, my_string)){ // if the string is valid, push it to the vector
+            result.push_back("YES");
         }
         else{
-            cout << "NO" << endl;
+            result.push_back("NO");
         }
+    }
+
+    for(int i = 0; i < result.size(); i++){ // print all the values of the vector;
+        cout << result[i] << endl;
     }
 
     return 0;
