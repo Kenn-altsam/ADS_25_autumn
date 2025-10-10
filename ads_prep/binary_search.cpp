@@ -9,17 +9,17 @@ int binary(const vector<int> &arr, int target){
 
     while(left <= right){
         mid = left + (right - left) / 2;
-        
         if(arr[mid] == target){
             return mid;
         }
-        else if(arr[mid] < target){
+        else if(target > arr[mid]){
             left = mid + 1;
         }
-        else{
+        else if(target < arr[mid]){
             right = mid - 1;
         }
     }
+
     return -1;
 }
 
