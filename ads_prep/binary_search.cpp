@@ -9,10 +9,9 @@ int binary(const vector<int> &arr, int target){
 
     while(left <= right){
         mid = left + (right - left) / 2;
-        if(arr[mid] == target){
-            return mid;
-        }
-        else if(target > arr[mid]){
+
+        
+        else if(target >= arr[mid]){
             left = mid + 1;
         }
         else if(target < arr[mid]){
@@ -20,7 +19,7 @@ int binary(const vector<int> &arr, int target){
         }
     }
 
-    return -1;
+    return left;
 }
 
 int main(){
