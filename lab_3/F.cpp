@@ -1,3 +1,5 @@
+// Help Mark to count the number of competitors that he can win in each round and the total sum of their powers.
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -42,3 +44,4 @@ int main(){
 
     return 0;
 }
+

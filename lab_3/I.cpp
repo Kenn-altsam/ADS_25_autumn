@@ -1,3 +1,5 @@
+// simple binary search
+
 #include <iostream>
 using namespace std;
 

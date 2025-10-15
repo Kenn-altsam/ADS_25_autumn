@@ -1,3 +1,6 @@
+// Material for paddock costs money, so Jonathan wants to
+// minimize the length of paddock side. He is not very good at math, help him find this length.
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,7 +14,7 @@ int main(){
 
     vector<int> L2, R2;
 
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++){ // get the coords of the sheep-pasture
         cin >> l1 >> r1 >> l2 >> r2;
         L2.push_back(l2);
         R2.push_back(r2);
@@ -25,17 +28,17 @@ int main(){
         mid = left + (right - left) / 2;
         cnt = 0;
 
-        for(int i = 0; i < n; i++){
-            if(L2[i] <= mid && R2[i] <= mid){
-                cnt++;
+        for(int i = 0; i < n; i++){ // count for every sheep
+            if(L2[i] <= mid && R2[i] <= mid){ // if the height and width of the sheep's square are both less or equal to mid
+                cnt++;                        // increase the cnt
             }
         }
 
-        if(cnt >= k){
-            ans = mid;
+        if(cnt >= k){ // if the cnt is greater or equal to k, we save the result of mid to ans, and search forward by decreasing the right, because we need minimal 
+            ans = mid; // mid is the length of the paddock's square
             right = mid - 1;
         }
-        else{
+        else{ // if it's not enough, increase the left
             left = mid + 1;
         }
     }

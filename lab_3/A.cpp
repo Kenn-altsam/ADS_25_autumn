@@ -1,3 +1,9 @@
+// Write a program that outputs the coordinates of elements from an array of size n×m, which is filled like
+// snake. Snake array - which is filled in like this
+// • For all j and k (j < k): aij > a(i+1)j.
+// • If i is even then, for all j and k (j < k) : a[i][j] > a[i][k].
+// • If i is odd then, for all j and k (j < k) : a[i][j] < a[i][k].
+
 #include <iostream>
 #include <vector>
 #include <map>

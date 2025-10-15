@@ -1,3 +1,5 @@
+// find the smallest subarray with sum >= k
+
 #include <iostream>
 #include <climits>
 #include <cmath>
@@ -16,7 +18,7 @@ int main(){
         my_array[i] = x;
     }
 
-    int left = 0, ans = INT_MAX, right , sum;
+    int left = 0, ans = INT_MAX, right, sum = 0;
 
     for(int i = 0; i < n; i++){
         right = i;
