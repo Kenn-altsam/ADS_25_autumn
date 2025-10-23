@@ -3,7 +3,7 @@
 using namespace std;
 
 void swap(int &a, int &b){
-    int temp = a; 
+    int temp = a;
     a = b;
     b = temp;
 }
@@ -21,33 +21,24 @@ void heapify(vector<int> &my_vector, int i){
     }
 
     if(largest != i){
-        swap(my_vector[largest], my_vector[i]);
+        swap(my_vector[i], my_vector[largest]);
+        heapify(my_vector, largest);
     }
 }
 
-void pop(vector<int> &my_vector){
-    if(my_vector.empty()){
-        cout << "Heap is empty";
-    }
-    int last = my_vector.size() - 1;
+void insert(vector<int> &my_vector, int a){
+    my_vector.push_back(a);
+    int current = my_vector.size() - 1;
 
-    cout << my_vector[0];
-
-    swap(my_vector[0], my_vector[last]);
-
-    my_vector.pop_back();
-
-    if(!my_vector.empty()){
-        heapify(my_vector, 0);
-    }
+    if()
 }
 
 int main(){
 
-    vector<int> my_vector = {95, 57, 80, 12, 50, 30};
+    vector<int> my_vector = {1, 91, 10, 20, 64, 23};
 
     for(int i = (my_vector.size() - 1) / 2; i >= 0; i--){
-        heapify(my_vector, i);
+        heapify(my_vector, 0);
     }
 
     for(int i = 0; i < my_vector.size(); i++){
@@ -55,9 +46,14 @@ int main(){
     }
     cout << endl;
 
-    pop(my_vector);
+    insert(my_vector, 100);
 
+    for(int i = 0; i < my_vector.size(); i++){
+        cout << my_vector[i] << ' ';
+    }
     cout << endl;
+
+    pop(my_vector);
 
     for(int i = 0; i < my_vector.size(); i++){
         cout << my_vector[i] << ' ';
